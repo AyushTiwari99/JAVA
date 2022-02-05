@@ -1,0 +1,13 @@
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
+
+import java.util.regex.*;
+public class neoclassic {
+    public static void main(String[] args)
+        {
+            Pattern p1 = Pattern.compile("[a-zA-Z0-9!=)]{8}");
+            Matcher m1 = p1.matcher("bahabxdj6378%$%&%&*");
+            while(m1.find()){
+                System.out.println(m1.group());
+            }
+        }
+}
