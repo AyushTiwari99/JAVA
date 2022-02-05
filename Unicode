@@ -1,0 +1,10 @@
+public class Demo {
+    public static void main(String[] args) {
+        char a=97;
+        char b='\u0061'; //unicode characters
+        int c=21;
+        System.out.println(a+" "+b);
+        System.out.println(Integer.toBinaryString(c));
+        float d=1.2f;
+    }
+}
