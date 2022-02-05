@@ -1,0 +1,18 @@
+class demo5 implements Runnable
+{
+    public void run() {
+        System.out.println("Hello");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+
+        }
+        System.out.println("World");
+    }
+    public static void main(String[] args) {
+        demo5 obj = new demo5();
+        Thread obj2 = new Thread(obj);
+        obj2.start();
+    }
+}
+
