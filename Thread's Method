@@ -1,0 +1,16 @@
+class test extends Thread
+{
+    @Override
+    public void run()
+    {
+        System.out.println("My thread");
+    }
+    public static void main(String[] args) {
+        test obj = new test();
+        obj.start();
+        System.out.println(obj.getName());
+        System.out.println(obj.isAlive());
+        System.out.println(obj.getPriority());
+        System.out.println("Outside");
+    }
+}
