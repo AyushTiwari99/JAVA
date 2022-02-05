@@ -1,0 +1,47 @@
+//import java.util.Scanner;
+//public class ABArrayDemo1
+//{
+//    int arr1[];                                            //Instance variable
+//     public ABArrayDemo1()                                 //Constructor
+//    {
+//        Scanner S = new Scanner(System.in);
+//        arr1 = new int[5];
+//        for (int i = 0; i < arr1.length; i++)
+//        {
+//            arr1[i] = S.nextInt();
+//        }
+//    }
+//    public static void main(String[] args)
+//    {
+//        ABArrayDemo1 obj = new ABArrayDemo1();
+//        for (int F:obj.arr1) {                              //Here we are using for each loop
+//            System.out.println(F);
+//        }
+//    }
+//}
+//
+
+
+
+//Using Static variable
+
+
+
+import java.util.Scanner;
+public class ABArrayDemo1
+{
+    static int arr1[];                      //static variable
+    public static void main(String[] args)
+    {
+        arr1 = new int[5];
+        Scanner S = new Scanner(System.in);
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = S.nextInt();
+        }
+
+
+        for (int F : arr1) {                              //Here we are using for each loop introduced in java 1.5
+            System.out.println(F);
+        }
+    }
+}
