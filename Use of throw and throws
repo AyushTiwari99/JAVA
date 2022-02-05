@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+class InvalidAgeException extends Exception{
+    InvalidAgeException(String s){
+        super(s);
+    }
+}
+
+public class Demo3{
+    public void valid(int age) throws InvalidAgeException{
+        if(age<18){
+            throw new InvalidAgeException("Can not vote");
+        }
+        else{
+            System.out.println("CAn vote");
+        }
+    }
+
+    public static void main(String[] args) throws InvalidAgeException {
+        Demo3 obj = new Demo3();
+        try{
+        obj.valid(17);}
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
