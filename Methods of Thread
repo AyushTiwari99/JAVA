@@ -1,0 +1,13 @@
+public class Papa {
+    public static void main(String[] args) {
+        Thread obj = Thread.currentThread();
+        System.out.println(obj.getName());
+        obj.setName("Ayush");
+        System.out.println(obj.getName());
+        System.out.println(obj.isAlive());
+        System.out.println(obj.getPriority());
+        System.out.println(obj.isDaemon());
+        obj.setPriority(7);
+        System.out.println(obj.getPriority());
+    }
+}
