@@ -1,0 +1,20 @@
+//import static javafx.scene.input.KeyCode.Z;
+
+//public class Sleep {
+//    public static void main(String[] args) {
+//        String s1 = "5457022614";
+//        System.out.println(s1.matches("(0|91)?[6-9][0-9]{9}"));
+//    }
+//}
+
+
+//------------------------------------------------------------------
+
+
+public class Sleep {
+    public static void main(String[] args) {
+        String s1 = "AbcDefa";
+        System.out.println(s1.matches("(a|A)+[a-zA-Z]+(a|A)"));
+    }
+}
+
