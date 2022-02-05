@@ -1,0 +1,21 @@
+public class Demo1 {
+    public static void main(String[] args) {
+
+//        Integer a = new Integer(20);
+//        Integer b = new Integer("200");
+//        System.out.println(a);
+
+//        Integer a = Integer.valueOf(100);
+//        System.out.println(a);
+//        Integer b = 200;
+//        System.out.println(a+b);
+
+//          Integer a = Integer.valueOf(100);
+//          int b = a.intValue();
+//        System.out.println(b);
+
+        Integer a = Integer.valueOf(100);
+        int b = a;
+        System.out.println(b);
+    }
+}
