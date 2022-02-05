@@ -1,0 +1,125 @@
+public class ABArrayDemo2
+{
+    static int arr[];
+
+    public ABArrayDemo2()
+    {
+        arr = new int[5];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Integer.MIN_VALUE;
+        }
+    }
+
+
+    public void insert(int value, int index)
+    {
+        try
+        {
+            if (arr[index] == Integer.MIN_VALUE)
+            {
+                arr[index] = value;
+            } else {
+                System.out.println("Already filled");
+            }
+
+        }
+        catch (ArrayIndexOutOfBoundsException obj)
+        {
+            System.out.println("Invalid index");
+
+        }
+    }
+
+
+
+
+//method to traverse the array
+// to print all the values stored in the array
+
+public void traverse()
+{
+    for (int i = 0; i <arr.length ; i++)
+    {
+        System.out.println(arr[i]);
+    }
+}
+
+
+
+
+
+// method to print a specific index value
+
+    public void indexvalueprint(int index)
+    {
+        try
+        {
+            System.out.println(arr[index]);
+
+        }
+        catch(ArrayIndexOutOfBoundsException obj)
+        {
+            System.out.println("invalid index");
+        }
+    }
+
+
+
+
+//method to search a value in the array
+
+public void searchinarray(int searchvalue)
+{
+    for (int i = 0; i < arr.length; i++)
+    {
+        if(arr[i]==searchvalue)
+        {
+            System.out.println("value found");
+            return;
+        }
+    }
+    System.out.println("No matched found");
+}
+
+
+
+
+
+// method to delete a value from the array
+// user provide the index
+
+        public void deletevalue(int index)
+        {
+            try {
+                arr[index] = Integer.MIN_VALUE;
+                }
+                catch(ArrayIndexOutOfBoundsException obj)
+                {
+                     System.out.println("out of range");
+                 }
+        }
+
+
+
+
+// delete the complete array
+
+        public void deletearray()
+        {
+           arr = null;
+           //this.arr = null;            //It is used to differentiate local and instance variable
+        }
+
+    public static void main(String[] args) {
+        ABArrayDemo2 obj = new ABArrayDemo2();
+        System.out.println("before insertion default value");
+        obj.traverse();
+        obj.insert(20,1);
+        System.out.println("after insertion");
+        obj.traverse();
+        obj.deletevalue(1);
+        System.out.println("after deletion");
+        obj.traverse();
+    }
+
+}
