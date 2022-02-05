@@ -1,0 +1,21 @@
+public class InstanceDemo {
+    int a=10; //instance
+    static int b=10;
+    public void show(){
+        System.out.println(a);
+        System.out.println(b);
+    }
+    public static void display(){
+        System.out.println(b);
+    }
+}
+
+class InstanceMAin{
+    public static void main(String[] args) {
+        InstanceDemo obj = new InstanceDemo();
+        System.out.println(obj.a);
+        System.out.println(InstanceDemo.b);
+        obj.show();
+        InstanceDemo.display();
+    }
+}
