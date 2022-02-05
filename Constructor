@@ -1,0 +1,34 @@
+public class Cons {
+    int a,b;
+    // Non-parameterized
+    Cons(){
+        a=10;
+        b=20;
+    }
+    // parimeterized
+//    Cons(int num1, int num2){
+//        a=num1;
+//        b=num2;
+//    }
+    Cons(int a, int b){
+        this.a=a;
+        this.b=b;
+    }
+//    public void setvalue(){
+//        a=10;
+//        b=20;
+//    }
+
+    public void show(){
+        System.out.println(a);
+    }
+}
+
+class ConsMAin{
+    public static void main(String[] args) {
+        Cons obj = new Cons(30,40);
+  //      obj.setvalue();
+        System.out.println(obj.a);
+        System.out.println(obj.b);
+    }
+}
