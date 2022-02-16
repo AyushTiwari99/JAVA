@@ -1,0 +1,169 @@
+class Node
+{
+    int data;
+    Node next;
+    Node(int data)
+    {
+        this.data=data;
+    }
+}
+
+public class cSinglyLL
+{
+    Node head;
+    public void insertAtBeg(Node newnode)
+    {
+        if (head==null)
+        {
+            head=newnode;
+            newnode.next=head;
+        }
+        else
+        {
+            Node temp = head;
+            newnode.next=head;
+            head=newnode;
+            while(temp.next!=null)
+            {
+                temp=temp.next;
+            }
+            temp.next=head;
+        }
+
+    }
+    public void insertAtLast(Node newnode)
+    {
+        if(head==null) insertAtBeg(newnode);
+        else
+        {
+            Node temp = head;
+            while(temp.next!=head)
+            {
+                temp=temp.next;
+            }
+            newnode.next=temp.next;
+            temp.next=newnode;
+        }
+    }
+
+    public void insertAtPos(int pos,Node newnode)
+    {
+        if(pos==1)
+        {
+            insertAtBeg(newnode);
+        }
+        else if(pos>count()+1)
+        {
+            System.out.println("Can't Insert");
+        }
+        //else if(pos==count()+1) insertAtLast(newnode);
+        else
+        {
+            Node temp = head;
+            for (int i = 0; i < pos-2; i++)
+            {
+                temp=temp.next;
+            }
+            newnode.next=temp.next;
+            temp.next=newnode;
+        }
+    }
+
+    public void deleteAtBeg()
+    {
+        if (head==null)
+        {
+            System.out.println("Node element-Can't Delete");
+        }
+        else
+        {
+            Node temp = head;
+            while(temp.next!=head)
+            {
+                temp=temp.next;
+            }
+            temp.next=head.next;
+            head=head.next;
+        }
+    }
+    public void deleteAtLast()
+    {
+        if(head==null)
+        {
+            System.out.println("Node element-Can't Delete");
+        }
+        else{
+            Node temp = head;
+            while(temp.next.next!=head)
+            {
+                temp = temp.next;
+            }
+            temp.next=head;
+        }
+    }
+    public void deleteAtPos(int pos)
+    {
+        if(pos==1)
+        {
+            deleteAtBeg();
+        }
+        else if(pos>count())
+        {
+            System.out.println("Invalid Position");
+        }
+        else
+        {
+            Node temp = head;
+            for (int i = 0; i <pos-2; i++) {
+                temp=temp.next;
+            }
+            temp.next=temp.next.next;
+        }
+    }
+
+
+        public  int count()
+    {
+        Node temp = head;
+        int c=0;
+        while(temp.next!=head)
+        {
+            c++;
+            temp = temp.next;
+        }
+        return c+1;
+    }
+
+
+    public void display()
+    {
+        if (head==null)
+        {
+            System.out.println("list is empty");
+        }
+        else
+        {
+            Node temp = head;
+            while(temp.next!=head)
+            {
+                System.out.println(temp.data);
+                temp =temp.next;
+            }
+            System.out.println(temp.data);
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        cSinglyLL obj = new cSinglyLL();
+        obj.insertAtBeg(new Node(1));
+        obj.insertAtLast(new Node(5));
+        obj.insertAtLast(new Node(10));
+        obj.insertAtPos(4,new Node(5));
+        obj.deleteAtPos(5);
+        obj.deleteAtBeg();
+        obj.deleteAtLast();
+        obj.display();
+        //System.out.println(obj.count());
+    }
+}
