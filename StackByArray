@@ -1,0 +1,50 @@
+public class STACK_BY_ARRAY {
+    int[] arr;
+    int top;
+    STACK_BY_ARRAY(int size){
+        arr = new int[size];
+        top = -1;
+    }
+    public boolean isEmpty(){
+        if(top == -1) return true;
+        else return false;
+    }
+    public boolean isFull(){
+        if(top == arr.length-1) return true;
+        else return false;
+    }
+    public void push(int value){
+        if(isFull()){
+            System.out.println("STACK OVERFLOW");
+        }
+        else {
+            top++;
+            arr[top] = value;
+        }
+    }
+    public void pop(){
+        if(isEmpty()) System.out.println("STACK UNDERFLOW");
+        else {
+            System.out.println("The popped element is " + arr[top]);
+            arr[top] = 0;
+            top--;
+        }
+    }
+    public void display(){
+        if(isEmpty()) System.out.println("STACK IS EMPTY");
+        else {
+            for(int i=top; i>=0; i--) {
+                System.out.println(arr[i]);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        STACK_BY_ARRAY obj = new STACK_BY_ARRAY(5);
+        obj.push(10);
+        obj.push(20);
+        obj.push(30);
+        obj.pop();
+        obj.display();
+    }
+}
