@@ -1,0 +1,164 @@
+class Node
+{
+    int data;
+    Node next;
+    Node(int data)
+    {
+        this.data=data;
+    }
+}
+public class SinglyLinkedList
+{
+    Node head;
+    public void insertAtBeg(Node newnode)
+    {
+        if(head==null)
+        {
+            head=newnode;
+        }
+        else
+        {
+            newnode.next=head;
+            head=newnode;
+        }
+    }
+    public void insertAtLast(Node newnode)
+    {
+        if(head==null)
+        {
+            head = newnode;
+        }
+        else
+        {
+            Node temp = head;
+            while (temp.next!=null)
+            {
+                temp = temp.next;
+            }
+            temp.next=newnode;
+        }
+    }
+        public void insertAtPos(int pos,Node newnode)
+    {
+        if(pos==1) {
+            insertAtBeg(newnode);
+        }
+//        else if(pos==count()+1) {
+//            insertAtLast(newnode);
+//        }
+        else if(pos>count()) System.out.println("INVALID POSITION");
+        else {
+            Node temp = head;
+            for(int i=0; i<pos-2; i++){
+                temp = temp.next;  //temp = 200
+            }
+            newnode.next = temp.next;
+            temp.next = newnode;
+
+        }
+    }
+
+    public void deleteAtBeg()
+    {
+        if(head==null)
+        {
+            System.out.println("No element in the list-can't delete");
+        }
+        else
+        {
+            head = head.next;
+        }
+    }
+
+
+    public void deleteAtLast()
+    {
+        if(head==null)
+        {
+            System.out.println("No element in the list-can't delete");
+        }
+        else if(head.next==null)
+        {
+            head=null;
+        }
+        else
+        {
+            Node temp = head;
+            while(temp.next.next!=null)
+            {
+                temp=temp.next;
+            }
+            temp.next=null;
+        }
+    }
+
+
+    public void deleteAtPos(int pos)
+    {
+        if(pos==1)
+        {
+                deleteAtBeg();   //head=null;
+        }
+        else if(pos>count())
+        {
+            System.out.println("Invalid Position");
+        }
+
+        else
+        {
+            Node temp = head;
+            for (int i = 0; i < pos-2; i++)
+            {
+                temp=temp.next;
+            }
+            temp.next = temp.next.next;
+
+        }
+    }
+
+
+    public  int count()
+    {
+        Node temp = head;
+        int c=0;
+        while(temp!=null)
+        {
+            c++;
+            temp = temp.next;
+        }
+        //System.out.println(c);
+        return c;
+    }
+
+
+    public void display()
+    {
+        if (head==null)
+        {
+            System.out.println("list is empty");
+        }
+        else
+        {
+            Node temp = head;
+            while(temp!=null)
+            {
+                System.out.println(temp.data);
+                temp =temp.next;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        SinglyLinkedList obj1 = new SinglyLinkedList();
+        obj1.insertAtLast(new Node(60));
+        obj1.insertAtLast(new Node(70));
+        obj1.insertAtBeg(new Node(12));
+        obj1.insertAtBeg(new Node(20));
+        obj1.insertAtBeg(new Node(1));
+        obj1.insertAtPos(5, new Node(1000));
+        obj1.deleteAtBeg();
+        obj1.deleteAtLast();
+        obj1.deleteAtPos(2);
+        System.out.println(obj1.count());
+        obj1.display();
+    }
+}
