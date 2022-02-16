@@ -1,0 +1,171 @@
+class Node
+{
+    int data;
+    Node next;
+    Node prev;
+    Node(int data)
+    {
+        this.data=data;
+    }
+}
+public class DoublyLinkedList
+{
+    Node head;
+    public void insertAtBeg(Node newnode)
+    {
+        if(head==null)
+        {
+            head=newnode;
+        }
+        else
+        {
+            newnode.next=head;
+            head.prev=newnode;
+            head=newnode;
+        }
+    }
+    public void insertAtLast(Node newnode)
+    {
+        if(head==null)
+        {
+            insertAtBeg(newnode);
+        }
+        else
+        {
+            Node temp=head;
+            while(temp.next!=null)
+            {
+                temp = temp.next;
+            }
+            temp.next=newnode;
+            newnode.prev=temp;
+        }
+    }
+
+    public void insertAtPos(int pos, Node newnode)
+    {
+        if(pos==1)
+        {
+            insertAtBeg(newnode);
+        }
+        else if(pos>count()+1)
+        {
+            System.out.println("Invalid Position");
+        }
+        else
+        {
+            Node temp =head;
+            for (int i = 0; i <pos-2 ; i++)
+            {
+                temp=temp.next;
+            }
+            newnode.next =temp.next;
+            temp.next=newnode;
+            newnode.prev=temp;
+
+        }
+    }
+
+    public void deleteAtBeg()
+    {
+        if(head==null)
+        {
+            System.out.println("Can't Delete-No element");
+        }
+        else
+        {
+            head=head.next;
+            head.prev=null;
+        }
+    }
+
+    public void deleteAtLast()
+    {
+        if(head==null)
+        {
+            deleteAtBeg();
+        }
+        else
+        {
+            Node temp=head;
+            while(temp.next.next!=null)
+            {
+                temp = temp.next;
+            }
+            temp.next=null;
+        }
+    }
+
+    public void deleteAtPos(int pos)
+    {
+        if(pos==1)
+        {
+            deleteAtBeg();
+        }
+        else if(pos>count())
+        {
+            System.out.println("Can't delete-OUT OF RANGE");
+        }
+        else
+        {
+            Node temp = head;
+            for (int i = 0; i <pos-2 ; i++)
+            {
+                temp=temp.next;
+            }
+            temp.next.next.prev=temp;
+            temp.next=temp.next.next;
+        }
+    }
+
+
+
+    public  int count()
+    {
+        Node temp = head;
+        int c=0;
+        while(temp!=null)
+        {
+            c++;
+            temp = temp.next;
+        }
+        //System.out.println(c);
+        return c;
+    }
+
+
+    public void display()
+    {
+        if (head==null)
+        {
+            System.out.println("list is empty");
+        }
+        else
+        {
+            Node temp = head;
+            while(temp!=null)
+            {
+                System.out.println(temp.data);
+                temp =temp.next;
+            }
+        }
+    }
+    public static void main(String[] args)
+    {
+        DoublyLinkedList obj = new DoublyLinkedList();
+//        obj.insertAtBeg(new Node(5));
+//        obj.insertAtLast(new Node(10));
+//        obj.insertAtLast(new Node(15));
+//        obj.insertAtPos(3,new Node(2));
+//        obj.insertAtPos(3,new Node(1));
+//        obj.deleteAtBeg();
+//        obj.deleteAtLast();
+//        //obj.deleteAtPos(2);
+//        obj.display();
+
+        obj.insertAtLast(new Node(10));
+        obj.insertAtLast(new Node(20));
+        obj.insertAtPos(3,new Node(30));
+        obj.display();
+    }
+}
